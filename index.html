@@ -41,7 +41,7 @@
         .cursor-circle {
             width: 40px; height: 40px;
             border: 1px solid rgba(0, 255, 157, 0.5);
-            transition: transform 0.1s ease-out;
+            transition: transform 0.1s ease-out, width 0.3s, height 0.3s, background-color 0.3s, top 0.05s ease-out, left 0.05s ease-out;
         }
         /* Hover State for Cursor */
         body.hovering .cursor-circle {
@@ -296,14 +296,13 @@
         const hoverTriggers = document.querySelectorAll('.hover-trigger');
 
         document.addEventListener('mousemove', (e) => {
+            // 즉각적인 반응을 위해 requestAnimationFrame이나 직접 좌표 대입 사용
             cursorDot.style.left = e.clientX + 'px';
             cursorDot.style.top = e.clientY + 'px';
             
-            // Lag effect for circle
-            setTimeout(() => {
-                cursorCircle.style.left = e.clientX + 'px';
-                cursorCircle.style.top = e.clientY + 'px';
-            }, 50);
+            // 서클은 아주 미세한 따라오는 느낌만 유지 (지연시간 제거)
+            cursorCircle.style.left = e.clientX + 'px';
+            cursorCircle.style.top = e.clientY + 'px';
         });
 
         // Hover states
