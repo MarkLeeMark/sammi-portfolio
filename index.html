@@ -41,7 +41,8 @@
         .cursor-circle {
             width: 40px; height: 40px;
             border: 1px solid rgba(0, 255, 157, 0.5);
-            transition: transform 0.1s ease-out, width 0.3s, height 0.3s, background-color 0.3s, top 0.05s ease-out, left 0.05s ease-out;
+            /* transition에서 위치(top, left) 관련 모든 지연 제거 */
+            transition: transform 0.1s ease-out, width 0.3s, height 0.3s, background-color 0.3s;
         }
         /* Hover State for Cursor */
         body.hovering .cursor-circle {
